@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - INACAP</title>
+    <meta name="description" content="Gestor de tareas académicas TaskFlow para estudiantes de INACAP">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css3.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1 class="logo">
+                <img src="inacapLogo.jpg" alt="INACAP TaskFlow" class="logo-img">
+            </h1>
+            <p class="subtitle">Gestor de Tareas Académicas</p>
+        </header>
+
+        <main class="main-content">
+            <section class="card add-task-section">
+                <h2>Nueva Tarea</h2>
+                <form id="task-form" novalidate>
+                    <div class="form-group">
+                        <label for="task-title">Título de la Tarea</label>
+                        <input type="text" id="task-title"
+                            placeholder="Ej: Estudiar para Evaluación 2 de Programación Web" required>
+                        <span class="error-msg" id="error-title"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-priority">Prioridad</label>
+                            <select id="task-priority" required>
+                                <option value="" disabled selected>Seleccionar...</option>
+                                <option value="Baja">Baja</option>
+                                <option value="Media">Media</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                            <span class="error-msg" id="error-priority"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-date">Fecha Límite</label>
+                            <input type="date" id="task-date" required>
+                            <span class="error-msg" id="error-date"></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Agregar Tarea</button>
+                </form>
+            </section>
+
+            <section class="card tasks-section">
+                <div class="tasks-header">
+                    <h2>Mis Tareas</h2>
+                    <div class="filters">
+                        <select id="filter-status" class="filter-select" aria-label="Filtrar por estado">
+                            <option value="Todas">Todas</option>
+                            <option value="Pendientes">Pendientes</option>
+                            <option value="Completadas">Completadas</option>
+                        </select>
+                        <select id="filter-priority" class="filter-select" aria-label="Filtrar por prioridad">
+                            <option value="Todas">Todas las Prioridades</option>
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tasks-list-container">
+                    <ul id="task-list" class="task-list">
+                        <!-- Las tareas se renderizan dinámicamente aquí mediante JavaScript -->
+                    </ul>
+                    <div id="empty-state" class="empty-state hidden">
+                        <p>No se encontraron tareas.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
